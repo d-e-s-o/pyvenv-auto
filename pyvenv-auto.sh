@@ -1,7 +1,7 @@
 # pyvenv-auto.sh
 
 #/***************************************************************************
-# *   Copyright (C) 2015 Daniel Mueller (deso@posteo.net)                   *
+# *   Copyright (C) 2015-2016 Daniel Mueller (deso@posteo.net)              *
 # *                                                                         *
 # *   This program is free software: you can redistribute it and/or modify  *
 # *   it under the terms of the GNU General Public License as published by  *
@@ -33,7 +33,7 @@ function _pyvenv_is_venv()
   # readability here. It is impossible to check everything (for
   # instance, the activate script could be corrupted) and we are sort of
   # in a hot path so we do not want to do unnecessary work.
-  test -f "${path}/${PYVENV_CFG}" -a -f "${path}/${PYVENV_ACTIVATE}"
+  test -e "${path}/${PYVENV_CFG}" -a -e "${path}/${PYVENV_ACTIVATE}"
 }
 
 function _pyvenv_find_venv()
