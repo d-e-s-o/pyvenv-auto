@@ -69,6 +69,12 @@ source <path-to-pyvent-auto>/pyvenv-auto.sh
 _pyvenv_activate_deactivate
 ```
 
+If you are using [Gentoo Linux](https://www.gentoo.org/),
+there is an [ebuild](https://github.com/d-e-s-o/pyvenv-auto-ebuild)
+available that can be used to install the program in the system (the
+registration with the bash initialization file still has to be done
+manually).
+
 
 Shell Prompt
 ------------
