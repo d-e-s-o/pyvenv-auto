@@ -1,7 +1,7 @@
 # pyvenv-auto.sh
 
 #/***************************************************************************
-# *   Copyright (C) 2015-2016 Daniel Mueller (deso@posteo.net)              *
+# *   Copyright (C) 2015-2016,2019 Daniel Mueller (deso@posteo.net)         *
 # *                                                                         *
 # *   This program is free software: you can redistribute it and/or modify  *
 # *   it under the terms of the GNU General Public License as published by  *
@@ -70,8 +70,8 @@ function _pyvenv_activate_deactivate()
     # is different. If it is different we deactivate the current one (if
     # any) and activate the found one. If both are equal there is
     # nothing to be done.
-    if [ "${venv}" != "${VIRTUAL_ENV}" ]; then
-      if [ -n "${VIRTUAL_ENV}" ]; then
+    if [ "${venv}" != "${VIRTUAL_ENV:-}" ]; then
+      if [ -n "${VIRTUAL_ENV:-}" ]; then
         # A deactivate function is provided by any activated venv.
         deactivate
       fi
@@ -81,7 +81,7 @@ function _pyvenv_activate_deactivate()
   else
     # If we did not find a valid environment we still might want to
     # deactivate the current one, if any.
-    if [ -n "${VIRTUAL_ENV}" ]; then
+    if [ -n "${VIRTUAL_ENV:-}" ]; then
       deactivate
     fi
   fi
