@@ -72,8 +72,10 @@ function _pyvenv_activate_deactivate()
     # nothing to be done.
     if [ "${venv}" != "${VIRTUAL_ENV:-}" ]; then
       if [ -n "${VIRTUAL_ENV:-}" ]; then
-        # A deactivate function is provided by any activated venv.
-        deactivate
+        # A deactivate function is provided by any activated venv. Note
+        # that we invoke it with a single (empty) argument because it
+        # unconditionally uses ${1} which is otherwise undefined.
+        deactivate ""
       fi
 
       source "${venv}/${PYVENV_ACTIVATE}"
@@ -82,7 +84,7 @@ function _pyvenv_activate_deactivate()
     # If we did not find a valid environment we still might want to
     # deactivate the current one, if any.
     if [ -n "${VIRTUAL_ENV:-}" ]; then
-      deactivate
+      deactivate ""
     fi
   fi
 }
